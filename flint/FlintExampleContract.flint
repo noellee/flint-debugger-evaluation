@@ -1,0 +1,21 @@
+contract FlintExampleContract {
+  var arr: Int[4]
+  var writeCount: Int = 0
+}
+
+FlintExampleContract :: caller <- (any) {
+  public init() {
+    self.arr = []
+  }
+
+  func incrementWriteCount() mutates (writeCount) {
+    self.writeCount += 1
+  }
+
+  public func write(index: Int, value: Int) mutates (writeCount, arr) {
+    if index < arr.size {
+      arr[index] = value
+      incrementWriteCount()
+    }
+  }
+}

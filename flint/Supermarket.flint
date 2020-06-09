@@ -1,0 +1,80 @@
+contract FlintSupermarket (Opened, Closed) {
+  var staff: Address[3] = []
+  let manager: Address
+
+  var stock: Int = 0
+
+  var customers: Int = 0
+
+  var cashRegister: Wei
+}
+
+FlintSupermarket @(any) :: caller <- (any) {
+  public init() mutates (Wei.rawValue) {
+    manager = caller
+    cashRegister = Wei(0)
+    become Closed
+  }
+
+  @payable
+  public func deposit(implicit value: Wei) {
+    cashRegister.transfer(source: &value)
+  }
+
+  func incrementCustomers(count: Int) mutates (customers) {
+    customers += count
+  }
+
+  func resetCustomers() mutates (customers) {
+    customers = 0
+  }
+}
+
+FlintSupermarket @(any) :: (manager) {
+  public func payday() mutates (cashRegister) {
+    for let employee: Address in staff {
+      var salary: Wei = Wei(&cashRegister, 42)
+      send(address: employee, value: &salary)
+    }
+  }
+
+  public func employ(position: Int, employee: Address) mutates (staff) {
+    staff[position] = employee
+  }
+}
+
+FlintSupermarket @(Opened) :: (any) {
+  @payable
+  public func buy(amount: Int, implicit value: Wei) mutates (stock, customers) {
+    let enoughCash: Bool = value.getRawValue() == amount * 10
+    assert(enoughCash)
+    cashRegister.transfer(source: &value)
+
+    if amount <= 2 && amount <= stock {
+      stock -= amount
+    }
+
+    incrementCustomers(count: 1)
+  }
+}
+
+FlintSupermarket @(Opened) :: (manager) {
+  public func close() mutates (customers) {
+    resetCustomers()
+    become Closed
+  }
+}
+
+FlintSupermarket @(Closed) :: (manager) {
+  public func open() {
+    if stock >= 1005011 {
+      become Opened
+    }
+  }
+}
+
+FlintSupermarket @(Closed) :: (manager, staff) {
+  public func restock(amount: Int) mutates (stock) {
+    stock += amount
+  }
+}
