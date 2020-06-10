@@ -12,16 +12,16 @@ contract FlintSupermarket {
       //////////////////////////////////////
   
       init()
-  function init() {
-    
-    let _caller := caller()
-  sstore(add(0, 0), 0)
-  sstore(add(0, 4), 0)
-  sstore(add(0, 5), 0)
-  sstore(add(0, 3), _caller)
-  Wei$init$Int(add(0, 6), 0, 0)
-  sstore(add(0, 7), 1)
-  }
+      function init() {
+        
+        let _caller := caller()
+        sstore(add(0, 0), 0)
+        sstore(add(0, 4), 0)
+        sstore(add(0, 5), 0)
+        sstore(add(0, 3), _caller)
+        Wei$init$Int(add(0, 6), 0, 0)
+        sstore(add(0, 7), 1)
+      }
   
       //////////////////////////////////////
       //// --    Struct functions    -- ////
@@ -31,8 +31,8 @@ contract FlintSupermarket {
       
       function Flint$Global$send$Address_$inoutWei(_address, _value, _value$isMem)  {
         let _w := flint$allocateMemory(32)
-      Wei$init$$inoutWei(_w, 1, _value, _value$isMem)
-      flint$send(Wei$getRawValue(_w, 1), _address)
+        Wei$init$$inoutWei(_w, 1, _value, _value$isMem)
+        flint$send(Wei$getRawValue(_w, 1), _address)
       }
       
       function Flint$Global$fatalError()  {
@@ -41,48 +41,48 @@ contract FlintSupermarket {
       
       function Flint$Global$assert$Bool(_condition)  {
         switch eq(_condition, 0)
-      case 1 {
-        Flint$Global$fatalError()
-      }
+        case 1 {
+          Flint$Global$fatalError()
+        }
       }
       
       //// Wei::Asset.flint@51:1:10  ////
       
       function Wei$init$Int(_flintSelf, _flintSelf$isMem, _unsafeRawValue)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      switch iszero(eq(_unsafeRawValue, 0))
-      case 1 {
-        Flint$Global$fatalError()
-      }
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        switch iszero(eq(_unsafeRawValue, 0))
+        case 1 {
+          Flint$Global$fatalError()
+        }
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
       }
       
       function Wei$init$Bool_Int(_flintSelf, _flintSelf$isMem, ___unsafeCompilerOverride, _unsafeRawValue)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      switch eq(___unsafeCompilerOverride, 0)
-      case 1 {
-        Flint$Global$fatalError()
-      }
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        switch eq(___unsafeCompilerOverride, 0)
+        case 1 {
+          Flint$Global$fatalError()
+        }
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
       }
       
       function Wei$init$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      Wei$transfer$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        Wei$transfer$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)
       }
       
       function Wei$init$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      Wei$transfer$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        Wei$transfer$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)
       }
       
       function Wei$setRawValue$Int(_flintSelf, _flintSelf$isMem, _value) -> ret {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _value, _flintSelf$isMem)
-      ret := flint$load(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _flintSelf$isMem)
+        ret := flint$load(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _flintSelf$isMem)
       }
       
       function Wei$getRawValue(_flintSelf, _flintSelf$isMem) -> ret {
@@ -91,11 +91,11 @@ contract FlintSupermarket {
       
       function Wei$transfer$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)  {
         switch lt(Wei$getRawValue(_source, _source$isMem), _amount)
-      case 1 {
-        Flint$Global$fatalError()
-      }
-      let _unused1 := Wei$setRawValue$Int(_source, _source$isMem, flint$sub(Wei$getRawValue(_source, _source$isMem), _amount))
-      let _unused2 := Wei$setRawValue$Int(_flintSelf, _flintSelf$isMem, flint$add(Wei$getRawValue(_flintSelf, _flintSelf$isMem), _amount))
+        case 1 {
+          Flint$Global$fatalError()
+        }
+        let _unused1 := Wei$setRawValue$Int(_source, _source$isMem, flint$sub(Wei$getRawValue(_source, _source$isMem), _amount))
+        let _unused2 := Wei$setRawValue$Int(_flintSelf, _flintSelf$isMem, flint$add(Wei$getRawValue(_flintSelf, _flintSelf$isMem), _amount))
       }
       
       function Wei$transfer$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)  {
@@ -391,68 +391,68 @@ contract FlintSupermarket {
       //////////////////////////////////////
 
       function FlintSupermarket$deposit$Wei()  {
-  let _caller := caller()
-let _value := flint$allocateMemory(32)
-Wei$init$Bool_Int(_value, 1, 1, callvalue())
-Wei$transfer$$inoutWei(add(0, 6), 0, _value, 1)
-}
-
-function FlintSupermarket$incrementCustomers$Int(_count)  {
-  let _caller := caller()
-sstore(add(0, 5), flint$add(sload(add(0, 5)), _count))
-}
-
-function FlintSupermarket$resetCustomers()  {
-  let _caller := caller()
-sstore(add(0, 5), 0)
-}
-
-function FlintSupermarket$payday()  {
-  for {
-  let flint$employee$i := 0
-let flint$employee$arrLen := 3
-} lt(flint$employee$i, flint$employee$arrLen) {
-  flint$employee$i := add(flint$employee$i, 1)
-} {
-  let _employee := sload(flint$storageFixedSizeArrayOffset(0, flint$employee$i, 3))
-let _salary := flint$allocateMemory(32)
-Wei$init$$inoutWei_Int(_salary, 1, add(0, 6), 0, 42)
-Flint$Global$send$Address_$inoutWei(_employee, _salary, 1)
-}
-}
-
-function FlintSupermarket$employ$Int_Address(_position, _employee)  {
-  sstore(flint$storageFixedSizeArrayOffset(0, _position, 3), _employee)
-}
-
-function FlintSupermarket$buy$Int_Wei(_amount)  {
-  let _value := flint$allocateMemory(32)
-Wei$init$Bool_Int(_value, 1, 1, callvalue())
-let _enoughCash := eq(Wei$getRawValue(_value, 1), flint$mul(_amount, 10))
-Flint$Global$assert$Bool(_enoughCash)
-Wei$transfer$$inoutWei(add(0, 6), 0, _value, 1)
-switch and(or(lt(_amount, 2), eq(_amount, 2)), or(lt(_amount, sload(add(0, 4))), eq(_amount, sload(add(0, 4)))))
-case 1 {
-  sstore(add(0, 4), flint$sub(sload(add(0, 4)), _amount))
-}
-FlintSupermarket$incrementCustomers$Int(1)
-}
-
-function FlintSupermarket$close()  {
-  FlintSupermarket$resetCustomers()
-sstore(add(0, 7), 1)
-}
-
-function FlintSupermarket$open()  {
-  switch or(gt(sload(add(0, 4)), 1005011), eq(sload(add(0, 4)), 1005011))
-case 1 {
-  sstore(add(0, 7), 0)
-}
-}
-
-function FlintSupermarket$restock$Int(_amount)  {
-  sstore(add(0, 4), flint$add(sload(add(0, 4)), _amount))
-}
+        let _caller := caller()
+        let _value := flint$allocateMemory(32)
+        Wei$init$Bool_Int(_value, 1, 1, callvalue())
+        Wei$transfer$$inoutWei(add(0, 6), 0, _value, 1)
+      }
+      
+      function FlintSupermarket$incrementCustomers$Int(_count)  {
+        let _caller := caller()
+        sstore(add(0, 5), flint$add(sload(add(0, 5)), _count))
+      }
+      
+      function FlintSupermarket$resetCustomers()  {
+        let _caller := caller()
+        sstore(add(0, 5), 0)
+      }
+      
+      function FlintSupermarket$payday()  {
+        for {
+          let flint$employee$i := 0
+          let flint$employee$arrLen := 3
+        } lt(flint$employee$i, flint$employee$arrLen) {
+          flint$employee$i := add(flint$employee$i, 1)
+        } {
+          let _employee := sload(flint$storageFixedSizeArrayOffset(0, flint$employee$i, 3))
+          let _salary := flint$allocateMemory(32)
+          Wei$init$$inoutWei_Int(_salary, 1, add(0, 6), 0, 42)
+          Flint$Global$send$Address_$inoutWei(_employee, _salary, 1)
+        }
+      }
+      
+      function FlintSupermarket$employ$Int_Address(_position, _employee)  {
+        sstore(flint$storageFixedSizeArrayOffset(0, _position, 3), _employee)
+      }
+      
+      function FlintSupermarket$buy$Int_Wei(_amount)  {
+        let _value := flint$allocateMemory(32)
+        Wei$init$Bool_Int(_value, 1, 1, callvalue())
+        let _enoughCash := eq(Wei$getRawValue(_value, 1), flint$mul(_amount, 10))
+        Flint$Global$assert$Bool(_enoughCash)
+        Wei$transfer$$inoutWei(add(0, 6), 0, _value, 1)
+        switch and(or(lt(_amount, 2), eq(_amount, 2)), or(lt(_amount, sload(add(0, 4))), eq(_amount, sload(add(0, 4)))))
+        case 1 {
+          sstore(add(0, 4), flint$sub(sload(add(0, 4)), _amount))
+        }
+        FlintSupermarket$incrementCustomers$Int(1)
+      }
+      
+      function FlintSupermarket$close()  {
+        FlintSupermarket$resetCustomers()
+        sstore(add(0, 7), 1)
+      }
+      
+      function FlintSupermarket$open()  {
+        switch or(gt(sload(add(0, 4)), 1005011), eq(sload(add(0, 4)), 1005011))
+        case 1 {
+          sstore(add(0, 7), 0)
+        }
+      }
+      
+      function FlintSupermarket$restock$Int(_amount)  {
+        sstore(add(0, 4), flint$add(sload(add(0, 4)), _amount))
+      }
 
       //////////////////////////////////////
       //// --   Wrapper functions    -- ////
@@ -602,8 +602,8 @@ function FlintSupermarket$restock$Int(_amount)  {
       
       function Flint$Global$send$Address_$inoutWei(_address, _value, _value$isMem)  {
         let _w := flint$allocateMemory(32)
-      Wei$init$$inoutWei(_w, 1, _value, _value$isMem)
-      flint$send(Wei$getRawValue(_w, 1), _address)
+        Wei$init$$inoutWei(_w, 1, _value, _value$isMem)
+        flint$send(Wei$getRawValue(_w, 1), _address)
       }
       
       function Flint$Global$fatalError()  {
@@ -612,48 +612,48 @@ function FlintSupermarket$restock$Int(_amount)  {
       
       function Flint$Global$assert$Bool(_condition)  {
         switch eq(_condition, 0)
-      case 1 {
-        Flint$Global$fatalError()
-      }
+        case 1 {
+          Flint$Global$fatalError()
+        }
       }
       
       //// Wei::Asset.flint@51:1:10  ////
       
       function Wei$init$Int(_flintSelf, _flintSelf$isMem, _unsafeRawValue)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      switch iszero(eq(_unsafeRawValue, 0))
-      case 1 {
-        Flint$Global$fatalError()
-      }
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        switch iszero(eq(_unsafeRawValue, 0))
+        case 1 {
+          Flint$Global$fatalError()
+        }
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
       }
       
       function Wei$init$Bool_Int(_flintSelf, _flintSelf$isMem, ___unsafeCompilerOverride, _unsafeRawValue)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      switch eq(___unsafeCompilerOverride, 0)
-      case 1 {
-        Flint$Global$fatalError()
-      }
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        switch eq(___unsafeCompilerOverride, 0)
+        case 1 {
+          Flint$Global$fatalError()
+        }
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _unsafeRawValue, _flintSelf$isMem)
       }
       
       function Wei$init$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      Wei$transfer$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        Wei$transfer$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)
       }
       
       function Wei$init$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)  {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
-      Wei$transfer$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)
+        flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), 0, _flintSelf$isMem)
+        Wei$transfer$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)
       }
       
       function Wei$setRawValue$Int(_flintSelf, _flintSelf$isMem, _value) -> ret {
         flint$store(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _value, _flintSelf$isMem)
-      ret := flint$load(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _flintSelf$isMem)
+        ret := flint$load(flint$computeOffset(_flintSelf, 0, _flintSelf$isMem), _flintSelf$isMem)
       }
       
       function Wei$getRawValue(_flintSelf, _flintSelf$isMem) -> ret {
@@ -662,11 +662,11 @@ function FlintSupermarket$restock$Int(_amount)  {
       
       function Wei$transfer$$inoutWei_Int(_flintSelf, _flintSelf$isMem, _source, _source$isMem, _amount)  {
         switch lt(Wei$getRawValue(_source, _source$isMem), _amount)
-      case 1 {
-        Flint$Global$fatalError()
-      }
-      let _unused1 := Wei$setRawValue$Int(_source, _source$isMem, flint$sub(Wei$getRawValue(_source, _source$isMem), _amount))
-      let _unused2 := Wei$setRawValue$Int(_flintSelf, _flintSelf$isMem, flint$add(Wei$getRawValue(_flintSelf, _flintSelf$isMem), _amount))
+        case 1 {
+          Flint$Global$fatalError()
+        }
+        let _unused1 := Wei$setRawValue$Int(_source, _source$isMem, flint$sub(Wei$getRawValue(_source, _source$isMem), _amount))
+        let _unused2 := Wei$setRawValue$Int(_flintSelf, _flintSelf$isMem, flint$add(Wei$getRawValue(_flintSelf, _flintSelf$isMem), _amount))
       }
       
       function Wei$transfer$$inoutWei(_flintSelf, _flintSelf$isMem, _source, _source$isMem)  {
